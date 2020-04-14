@@ -1,5 +1,5 @@
 {
-  "name": "Kind",
+  "name": "KIND",
   "version": "0.1.1",
   "manifest_version": 2,
   "description": "Keep It Non-Damaging",
@@ -32,5 +32,11 @@
     "https://*/*",
     "http://*/*",
     "tabs"],
-    "web_accessible_resources": ["src/my_inject_content.js"]
+  "web_accessible_resources": ["src/my_inject_content.js"],
+  "content_scripts": [
+    { "run_at" :"document_end",
+    "matches": ["<all_urls>"],
+    "js": ["js/jquery-3.4.1.js","src/content.js"],
+    "css":["css/mycss.css"] }
+  ]
 }

@@ -23,10 +23,16 @@
 		div.textContent = 'Injected!';
 		document.body.appendChild(div);
 	}
+
+	function insertDialog() {
+
+	}
+
 	console.log("inject script running")
 	//adds jQuery for use
 	injectScript();
 	insertDiv();
+	insertDialog();
 
 	// alert('inserted self... giggity');
 
