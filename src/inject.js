@@ -3,11 +3,21 @@
 (function() {
 
 	function injectScript() {
-		script = document.createElement('script');
+		var script = document.createElement('script');
 		script.type = 'text/javascript';
 		script.async = true;
 		script.onload = function(){
 			// remote script has loaded
+			console.log("ajax script onload()");
+			var s = document.createElement("script");
+			s.type = "text/javascript";
+			s.async = true;
+			s.onload = function() {
+
+			};
+			var source = chrome.extension.getURL("src/modal.js");
+			s.src = source;
+			document.getElementsByTagName("head")[0].appendChild(s);
 		};
 		script.src = "https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js";
 		document.getElementsByTagName('head')[0].appendChild(script);

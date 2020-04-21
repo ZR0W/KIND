@@ -32,11 +32,11 @@
     "https://*/*",
     "http://*/*",
     "tabs"],
-  "web_accessible_resources": ["src/my_inject_content.js"],
+  "web_accessible_resources": ["src/my_inject_content.js", "src/modal.js"],
   "content_scripts": [
     { "run_at" :"document_end",
     "matches": ["<all_urls>"],
-    "js": ["js/jquery-3.4.1.js","src/content.js"],
+    "js": [],
     "css":["css/mycss.css"] }
   ]
 }
