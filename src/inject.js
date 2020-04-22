@@ -13,7 +13,13 @@
 			s.type = "text/javascript";
 			s.async = true;
 			s.onload = function() {
-
+				console.log("on modal.js load");
+				var c = document.createElement("link");
+				c.setAttribute("rel", "stylesheet");
+				c.setAttribute("type",  "text/css");
+				var cssPath = chrome.extension.getURL("css/mycss.css");
+				c.setAttribute("href", cssPath);
+				document.getElementsByTagName("head")[0].appendChild(c);
 			};
 			var source = chrome.extension.getURL("src/modal.js");
 			s.src = source;
@@ -34,15 +40,22 @@
 		document.body.appendChild(div);
 	}
 
+	function insertModal() {
+		var box = '<div id="myModal" class="modal"><div class="modal-content"><div class="modal-header"><span class="close">&times;</span><h2></h2></div><div class="modal-body"><p id="modaltext">Are you <span class="bigger">SURE</span> you want to say  <span class="bigger">THAT</span> to them?</p><button id="modalReturn">Retract</button><button id="modalContinue">Continue</button></div></div>';
+		// document.getElementsByTagName('body')[0].appendChild(box);
+		document.getElementsByTagName('body')[0].innerHTML += box;
+	}
+
 	function insertDialog() {
 
 	}
 
 	console.log("inject script running")
-	//adds jQuery for use
+	insertModal();
 	injectScript();
-	insertDiv();
-	insertDialog();
+
+	// insertDiv();
+	// insertDialog();
 
 	// alert('inserted self... giggity');
 
