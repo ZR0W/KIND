@@ -45,7 +45,8 @@ $(document).ready(function() {
         // console.log($focused);
         console.log(target);
         triggerElement = $(':focus');
-        var text = triggerElement.val().toLowerCase();
+        // var text = triggerElement.val().toLowerCase();
+        var text = triggerElement.html().toLowerCase();
         console.log(text);
 
         function hasBadWord(text) {

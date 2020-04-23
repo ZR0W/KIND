@@ -14,6 +14,8 @@ April 19: document.activeElement seems like a valid way to get the user input ar
 
 April 21: now, on every keyevent, extension is able to search for designated keywords in the focused element (input, contenteditable div, etc). 
 
+April 22: extension seems to behave differntly on Windos VS. Mac. Also, enabling the extension in Twitter renders the input area nonresponsive. Currently don't know what the problem is. 
+
 ## comments
 In order to make up for lost time in the semester, we are not using the background script for most of the logic, which I suspect may be prefered. 
 
