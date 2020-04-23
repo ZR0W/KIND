@@ -1,12 +1,10 @@
 # KIND
 
 ## about
-chrome extension that aims to detect potentially harmful expressions and give the user a chance to reflect upon their choice of language.
+A chrome extension that aims to detect potentially harmful expressions and give the user a chance to reflect upon their choice of language.
 
 ## current problems
-How to utilize jQuery with the extension?
-
-Where should the bulk of the logic be?
+April 11: How to utilize jQuery with the extension? Where should the bulk of the logic be?
 
 April 14: background script is able to ececute inject.js. jQuery can be appended to the page but not my own scripts?
 
@@ -16,6 +14,8 @@ April 21: now, on every keyevent, extension is able to search for designated key
 
 April 22: extension seems to behave differntly on Windos VS. Mac. Also, enabling the extension in Twitter renders the input area nonresponsive. Currently don't know what the problem is. 
 
+By Identifying the span element that holds the text of the draft, now able to clear the draft box when retract is clicked. However, the text is restored upon focus of the draft box. Reason unknown. Is the draft stored somewhere? 
+
 ## comments
-In order to make up for lost time in the semester, we are not using the background script for most of the logic, which I suspect may be prefered. 
+Currently, this extension only aims to work with Twitter. Universally working for all types of websites where content can be posted seems too chaotic right now. 
 

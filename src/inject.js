@@ -30,14 +30,50 @@
 	}
 
 	function insertDiv() {
-		// just place a div at top right
-		var div = document.createElement('div');
-		div.style.position = 'fixed';
-		div.style.top = 0;
-		div.style.right = 0;
-		div.style.backgroundColor = "green";
-		div.textContent = 'Injected!';
-		document.body.appendChild(div);
+		// creating nodes
+		var outside = document.createElement('div');
+		outside.setAttribute("id", "myModal");
+		outside.setAttribute("class", "modal");
+
+		var content = document.createElement('div');
+		content.setAttribute("class", "modal-content");
+		
+		var head = document.createElement('div');
+		head.setAttribute("class", "modal-header");
+
+		var close = document.createElement("SPAN");
+		var closeTxt = document.createTextNode("&times;");
+		close.appendChild(closeTxt);
+
+		var h2 = document.createElement("h2");
+
+		var body = document.createElement("div");
+		body.setAttribute("class", "modal-body");
+
+		var p = document.createElement("p");
+		p.setAttribute("id", "modaltext");
+		var ptxt = document.createTextNode("Are you sure you want to say that?");
+		p.appendChild(ptxt);
+
+		var retract = document.createElement("button");
+		retract.setAttribute("id", "modalReturn");
+		retract.appendChild(document.createTextNode("Retract"));
+
+		var cont = document.createElement("button");
+		cont.setAttribute("id", "modalContinue");
+		cont.appendChild(document.createTextNode("Continue"));
+
+		//layering
+		body.appendChild(p);
+		body.appendChild(retract);
+		body.appendChild(cont);
+		head.appendChild(close);
+		head.appendChild(h2);
+		content.appendChild(head);
+		content.appendChild(body);
+		outside.appendChild(content);
+		//append to document
+		document.getElementsByTagName("body")[0].appendChild(outside);
 	}
 
 	function insertModal() {
@@ -51,10 +87,10 @@
 	}
 
 	console.log("inject script running")
-	insertModal();
+	insertDiv();
+	// insertModal();
 	injectScript();
 
-	// insertDiv();
 	// insertDialog();
 
 	// alert('inserted self... giggity');

@@ -19,7 +19,23 @@ $(document).ready(function() {
 
         $("#modalReturn").click(function() {
             console.log("modal return clicked");
-            triggerElement.val("");
+            // triggerElement.val("");
+            // triggerElement.innerText = "";
+            /*
+            this function is specificaly targeting the code for twitter.com
+            */
+            function targetTwitter() {
+                $(".DraftEditor-root").find("span[data-text]").text("");
+                //.text("") cleared the text at first glance but comes back with focus returns to draft box
+                // triggerElement.focus();
+
+                //trying a different thing:
+                // var out = $(".DraftEditor-root").find("span[data-offset-key]");
+                // $(".DraftEditor-root").find("span[data-text]").remove();
+                // $(".DraftEditor-root").find("span[data-offset-key]").append(document.createElement("br").setAttribute("data-text", "true"));
+                //the above method successfully got rid of the text but then casued twitter to realize a page error and refreshed
+            }
+            targetTwitter();
             $(".modal")[0].style.display = "none";
         });
 
@@ -34,7 +50,7 @@ $(document).ready(function() {
 
     appendModal();
 
-    $(document).keydown(function(e) {
+    $(document).keyup(function(e) {
         if(!monitorOn) {
             return;
         }
@@ -43,9 +59,15 @@ $(document).ready(function() {
         var target = document.activeElement;
         // var $focused = $(':focus');
         // console.log($focused);
-        console.log(target);
+        console.log("activeElement: " + target);
+        // console.log("activeElement detail: " + target.html());
         triggerElement = $(':focus');
+        console.log("focused element: " + triggerElement);
+        console.log("focused element detail: " + triggerElement.html());
         // var text = triggerElement.val().toLowerCase();
+        /*
+        right now it seems the html() method works for editable div and val() for input tags
+        */
         var text = triggerElement.html().toLowerCase();
         console.log(text);
 
