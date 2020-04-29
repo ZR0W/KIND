@@ -3,12 +3,12 @@
   "version": "0.1.1",
   "manifest_version": 2,
   "description": "Keep It Non-Damaging",
-  "homepage_url": "http://danharper.me",
+  "homepage_url": "http://github.com/ZR0W/KIND",
   "background": {
     "scripts": [
       "src/background.js"
     ],
-    "persistent": true
+    "persistent": false
   },
   "browser_action": {
     
@@ -32,6 +32,12 @@
     "https://*/*",
     "http://*/*",
     "tabs"],
-  "web_accessible_resources": ["src/my_inject_content.js", "src/modal.js", "css/mycss.css"]
+  "web_accessible_resources": ["src/my_inject_content.js", "src/modal.js", "css/mycss.css"],
+  "content_scripts": [
+    {
+      "matches": ["*://*.twitter.com/*"],
+      "js": ["src/content.js"]
+    }
+  ]
   
 }
