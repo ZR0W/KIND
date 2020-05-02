@@ -10,6 +10,7 @@
 
 chrome.runtime.onMessage.addListener(function(message, callback) {
     if (message.data == "inject") {
+		console.log("inject message recieved");
 		chrome.tabs.executeScript({
 			file: 'src/inject.js'
 		});

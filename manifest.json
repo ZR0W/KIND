@@ -32,7 +32,7 @@
     "https://*/*",
     "http://*/*",
     "tabs"],
-  "web_accessible_resources": ["src/my_inject_content.js", "src/modal.js", "css/mycss.css"],
+  "web_accessible_resources": ["src/modal.js", "css/mycss.css", "js/jquery-3.4.1.js"],
   "content_scripts": [
     {
       "matches": ["*://*.twitter.com/*"],

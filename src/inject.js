@@ -17,7 +17,7 @@
 				var c = document.createElement("link");
 				c.setAttribute("rel", "stylesheet");
 				c.setAttribute("type",  "text/css");
-				var cssPath = chrome.extension.getURL("css/mycss.css");
+				var cssPath = chrome.runtime.getURL("css/mycss.css");
 				c.setAttribute("href", cssPath);
 				document.getElementsByTagName("head")[0].appendChild(c);
 			};
@@ -25,7 +25,8 @@
 			s.src = source;
 			document.getElementsByTagName("head")[0].appendChild(s);
 		};
-		script.src = "https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js";
+		// script.src = "https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js";
+		script.setAttribute("src", chrome.runtime.getURL("js/jquery-3.4.1.js"));
 		document.getElementsByTagName('head')[0].appendChild(script);
 	}
 
@@ -42,7 +43,8 @@
 		head.setAttribute("class", "modal-header");
 
 		var close = document.createElement("SPAN");
-		var closeTxt = document.createTextNode("&times;");
+		close.setAttribute("class", "close");
+		var closeTxt = document.createTextNode("-");
 		close.appendChild(closeTxt);
 
 		var h2 = document.createElement("h2");
