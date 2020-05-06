@@ -16,6 +16,8 @@ April 22: extension seems to behave differntly on Windos VS. Mac. Also, enabling
 
 By Identifying the span element that holds the text of the draft, now able to clear the draft box when retract is clicked. However, the text is restored upon focus of the draft box. Reason unknown. Is the draft stored somewhere? 
 
+May 5: Currently implementing a nonideal solution to the April 22nd problem: to reload the page upon user retracting message to clear page in-memory state. 
+
 ## comments
 Currently, this extension only aims to work with Twitter. Universally working for all types of websites where content can be posted seems too chaotic right now. 
 
