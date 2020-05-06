@@ -1,6 +1,7 @@
-var word = ["hello", "oh", "fuck", "damn", "shit", "suck"];
+var word = ["fuck", "damn", "shit", "suck", "faggot","bitch", "cunt"];
 var triggerElement;
 var monitorOn = true;
+var secondtry = false;
 
 $(document).ready(function() {
     console.log("document ready function fired from modal.js");
@@ -26,6 +27,7 @@ $(document).ready(function() {
             */
             function targetTwitter() {
                 $(".DraftEditor-root").find("span[data-text]").text("");
+                location.reload();
                 //.text("") cleared the text at first glance but comes back with focus returns to draft box
                 // triggerElement.focus();
 
@@ -35,17 +37,33 @@ $(document).ready(function() {
                 // $(".DraftEditor-root").find("span[data-offset-key]").append(document.createElement("br").setAttribute("data-text", "true"));
                 //the above method successfully got rid of the text but then casued twitter to realize a page error and refreshed
             }
-            targetTwitter();
             $(".modal")[0].style.display = "none";
+            targetTwitter();
         });
 
         $("#modalContinue").click(function() {
             console.log("modal continue called");
-            monitorOn = false;
-            $(".modal")[0].style.display = "none";
+            if(secondtry){
+                monitorOn = false;
+                $(".modal")[0].style.display = "none";
+            }else{
+                var txt = "Really? Give it another thought please."
+                var speed = 20;
+                var i =0;
+                function typeWriter() {
+                    if (i < txt.length) {
+                        document.getElementById("typetext").innerHTML += txt.charAt(i);
+                        i++;
+                        setTimeout(typeWriter, speed);
+                      }
+                  }
+                // initial animation attempt
+                // $("#modaltext").addClass("modaltext-change");
+                typeWriter();
+                secondtry = true;
+            }
         });
-        // document.getElementsByClassName("close")[0].onclick = spanClick;
-        // window.onclick = windowClick;//close the modal on window click
+
     }
 
     appendModal();
@@ -78,7 +96,12 @@ $(document).ready(function() {
                     //found matching keyword
                     console.log("found keyword: " + word[i]);
                     //fire modal popup
-                    $(".modal")[0].style.display = "block";
+                    function showModal() {
+                        $('#modalContinue').hide();
+                        $(".modal")[0].style.display = "block";
+                        $('#modalContinue').delay(5000).fadeIn(300);
+                    }
+                    showModal();
                 }
             }
         }

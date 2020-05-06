@@ -137,3 +137,61 @@ in-modal fonts and styles
 .modal h2{
     margin-top: 0px;
 }
+
+/* 
+ * animating modal text change upon continue button
+ */
+
+@keyframes changemessage {
+    0% {
+        content: "Are you sure you want to say that?";
+        opacity: 100%;
+    }
+    10% {
+        content: "Are you sure you want to say that?";
+        opacity: 70%;
+    }
+    20% {
+        content: "Are you sure you want to say that?";
+        opacity: 40%;
+    }
+    30% {
+        content: "Are you sure you want to say that?";
+        opacity: 10%;
+    }
+    40% {
+        content: "";
+        opacity: 0%;
+    }
+    50% {
+        content: "Really? Just give it another thought.";
+        opacity: 0%;
+    }
+    60% {
+        content: "Really? Just give it another thought.";
+        opacity: 10%;
+    }
+    70% {
+        content: "Really? Just give it another thought.";
+        opacity: 40%;
+    }
+    80% {
+        content: "Really? Just give it another thought.";
+        opacity: 70%;
+    }
+    90% {
+        content: "Really? Just give it another thought.";
+        opacity: 100%;
+    }
+    100% {
+        content: "Really? Just give it another thought.";
+        opacity: 100%;
+    }
+}
+
+.modaltext-change {
+    /* animation: changemessage 3s linear; */
+    content: "test";
+    animation: changemessage 3s linear;
+}
+

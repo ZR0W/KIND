@@ -54,8 +54,12 @@
 
 		var p = document.createElement("p");
 		p.setAttribute("id", "modaltext");
-		var ptxt = document.createTextNode("Are you sure you want to say that?");
+		var message = "Are you sure you want to say that?";
+		var ptxt = document.createTextNode(message);
 		p.appendChild(ptxt);
+
+		var animep = document.createElement("p");
+		animep.setAttribute("id", "typetext");
 
 		var retract = document.createElement("button");
 		retract.setAttribute("id", "modalReturn");
@@ -67,6 +71,7 @@
 
 		//layering
 		body.appendChild(p);
+		body.appendChild(animep);
 		body.appendChild(retract);
 		body.appendChild(cont);
 		head.appendChild(close);
@@ -84,18 +89,9 @@
 		document.getElementsByTagName('body')[0].innerHTML += box;
 	}
 
-	function insertDialog() {
-
-	}
-
 	console.log("inject script running")
 	insertDiv();
 	// insertModal();
 	injectScript();
-
-	// insertDialog();
-
-	// alert('inserted self... giggity');
-
 
 })();
