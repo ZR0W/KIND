@@ -1,3 +1,8 @@
+/**
+ * Author: @Rowland Zhang
+ * Email: rowlandz@outlook.com
+ */
+
 // this is the code which will be injected into a given page...
 
 (function() {
@@ -8,12 +13,10 @@
 		script.async = true;
 		script.onload = function(){
 			// remote script has loaded
-			console.log("ajax script onload()");
 			var s = document.createElement("script");
 			s.type = "text/javascript";
 			s.async = true;
 			s.onload = function() {
-				console.log("on modal.js load");
 				var c = document.createElement("link");
 				c.setAttribute("rel", "stylesheet");
 				c.setAttribute("type",  "text/css");
@@ -83,15 +86,7 @@
 		document.getElementsByTagName("body")[0].appendChild(outside);
 	}
 
-	function insertModal() {
-		var box = '<div id="myModal" class="modal"><div class="modal-content"><div class="modal-header"><span class="close">&times;</span><h2></h2></div><div class="modal-body"><p id="modaltext">Are you <span class="bigger">SURE</span> you want to say  <span class="bigger">THAT</span> to them?</p><button id="modalReturn">Retract</button><button id="modalContinue">Continue</button></div></div>';
-		// document.getElementsByTagName('body')[0].appendChild(box);
-		document.getElementsByTagName('body')[0].innerHTML += box;
-	}
-
-	console.log("inject script running")
 	insertDiv();
-	// insertModal();
 	injectScript();
 
 })();

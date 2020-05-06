@@ -1,16 +1,12 @@
-// this is the background code...
+/**
+ * Author: @Rowland Zhang
+ * Email: rowlandz@outlook.com
+ */
 
-// listen for our browerAction to be clicked
-// chrome.browserAction.onClicked.addListener(function (tab) {
-// 	// for the current tab, inject the "inject.js" file & execute it
-// 	chrome.tabs.executeScript(tab.id, {
-// 		file: 'src/inject.js'
-// 	});
-// });
+// this is the background code...
 
 chrome.runtime.onMessage.addListener(function(message, callback) {
     if (message.data == "inject") {
-		console.log("inject message recieved");
 		chrome.tabs.executeScript({
 			file: 'src/inject.js'
 		});
